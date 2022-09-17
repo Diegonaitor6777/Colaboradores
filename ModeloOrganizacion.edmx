@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ORGANIZACIONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ORGANIZACION.dbo.COLABORADORES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="COLABORADORES">
+          <Key>
+            <PropertyRef Name="IDCOLABORADOR" />
+          </Key>
+          <Property Name="IDCOLABORADOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="APELLIDO" Type="varchar" MaxLength="50" />
+          <Property Name="FECHANACIMIENTO" Type="datetime" />
+          <Property Name="ESTADOCIVIL" Type="varchar" MaxLength="20" />
+          <Property Name="GRADOACADEMICO" Type="varchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="ORGANIZACIONModelStoreContainer">
+          <EntitySet Name="COLABORADORES" EntityType="Self.COLABORADORES" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [COLABORADORES].[IDCOLABORADOR] AS [IDCOLABORADOR], 
+    [COLABORADORES].[NOMBRE] AS [NOMBRE], 
+    [COLABORADORES].[APELLIDO] AS [APELLIDO], 
+    [COLABORADORES].[FECHANACIMIENTO] AS [FECHANACIMIENTO], 
+    [COLABORADORES].[ESTADOCIVIL] AS [ESTADOCIVIL], 
+    [COLABORADORES].[GRADOACADEMICO] AS [GRADOACADEMICO], 
+    [COLABORADORES].[DIRECCION] AS [DIRECCION]
+    FROM [dbo].[COLABORADORES] AS [COLABORADORES]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ORGANIZACIONModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="COLABORADORES">
+          <Key>
+            <PropertyRef Name="IDCOLABORADOR" />
+          </Key>
+          <Property Name="IDCOLABORADOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHANACIMIENTO" Type="DateTime" Precision="3" />
+          <Property Name="ESTADOCIVIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GRADOACADEMICO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ORGANIZACIONEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COLABORADORES" EntityType="Self.COLABORADORES" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ORGANIZACIONModelStoreContainer" CdmEntityContainer="ORGANIZACIONEntities">
+          <EntitySetMapping Name="COLABORADORES">
+            <EntityTypeMapping TypeName="ORGANIZACIONModel.COLABORADORES">
+              <MappingFragment StoreEntitySet="COLABORADORES">
+                <ScalarProperty Name="IDCOLABORADOR" ColumnName="IDCOLABORADOR" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
+                <ScalarProperty Name="ESTADOCIVIL" ColumnName="ESTADOCIVIL" />
+                <ScalarProperty Name="GRADOACADEMICO" ColumnName="GRADOACADEMICO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
